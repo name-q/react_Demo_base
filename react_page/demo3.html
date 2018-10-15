@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div id='root'></div>
+
+
+    <script src="./js/react.development.js" type='text/javascript' charset="utf-8"></script>
+    <script src="./js/react-dom.development.js" type='text/javascript' charset="utf-8"></script>
+    <script src="./js/babel.min.js" type='text/javascript' charset="utf-8"></script>
+
+
+
+    <script type="text/babel">
+
+      const names = ['jQuery','zepto','angular','react','vue']
+
+      const Dom =(<ul>{names.map((name,index)=><li key={index}>{name}</li>)}</ul>)
+
+      ReactDOM.render(Dom,document.getElementById('root'))
+    </script>
+  </body>
+</html>

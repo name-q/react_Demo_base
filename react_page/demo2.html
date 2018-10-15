@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div id='test1'></div>
+    <div id='test2'></div>
+
+    <script src="./js/react.development.js" type='text/javascript' charset="utf-8"></script>
+    <script src="./js/react-dom.development.js" type='text/javascript' charset="utf-8"></script>
+    <script src="./js/babel.min.js" type='text/javascript' charset="utf-8"></script>
+
+    <script type="text/javascript">
+      const msg = 'i like you'
+      const myId = 'idname'
+
+      const Dom = React.createElement('h2',{id:myId.toLowerCase()},msg.toUpperCase())
+      debugger
+      ReactDOM.render(Dom,document.getElementById('test1'))
+    </script>
+
+
+    <script type="text/babel">
+
+      var Dom2 = <h3 id = {myId.toUpperCase()}>{msg.toLowerCase()}</h3>
+      ReactDOM.render(Dom2,document.getElementById('test2'))
+    </script>
+  </body>
+</html>

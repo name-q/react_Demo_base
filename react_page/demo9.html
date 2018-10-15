@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>13</title>
+  </head>
+  <body>
+    <div id='root'>
+
+    </div>
+
+    <script src="./js/react.development.js" type='text/javascript' charset="utf-8"></script>
+    <script src="./js/react-dom.development.js" type='text/javascript' charset="utf-8"></script>
+    <script src="./js/babel.min.js" type='text/javascript' charset="utf-8"></script>
+
+    <script type="text/babel">
+
+      class LoginForm extends React.Component {
+        constructor(props){
+          super(props)
+          this.state = {
+            pwd:''
+          }
+          this.handleSubmit=this.handleSubmit.bind(this)
+          this.handleChange=this.handleChange.bind(this)
+
+        }
+        handleSubmit(event){
+          //no default
+          event.preventDefault()
+          const name = this.nameInput.value
+          const {pwd} = this.state
+
+          alert('user:'+name+'password:'+pwd)
+        }
+        handleChange(event){
+          //read input value set pwd
+          const pwd = event.target.value
+          this.setState({pwd})
+        }
+        render(){
+          return(
+            <form action='/test' onSubmit={this.handleSubmit}>
+              user: <input type="text" ref={input=>this.nameInput = input}/>
+              password: <input type="password" value = {this.state.pwd} onChange={this.handleChange}/>
+              <input type="submit" value="login"/>
+            </form>
+          )
+        }
+      }
+
+      ReactDOM.render(<LoginForm />,document.getElementById('root'))
+    </script>
+  </body>
+</html>
